@@ -1,0 +1,13 @@
+﻿<Window x:Class="New.LoginWindow"
+        xmlns="http://schemas.microsoft.com/winfx/2006/xaml/presentation"
+        xmlns:x="http://schemas.microsoft.com/winfx/2006/xaml" WindowStartupLocation="CenterScreen"
+        xmlns:d="http://schemas.microsoft.com/expression/blend/2008"
+        xmlns:mc="http://schemas.openxmlformats.org/markup-compatibility/2006"
+        xmlns:local="clr-namespace:New"
+        mc:Ignorable="d"
+        Title="LoginWindow" Height="300" Width="300">
+    <DockPanel>
+        <TextBlock Text="This is Login window"></TextBlock>
+        <Button Content="Login" Width="120" Height="40" Click="ButtonBase_OnClick"></Button>
+    </DockPanel>
+</Window>

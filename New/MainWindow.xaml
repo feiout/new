@@ -1,0 +1,32 @@
+﻿<Window x:Class="New.MainWindow"
+        xmlns="http://schemas.microsoft.com/winfx/2006/xaml/presentation"
+        xmlns:x="http://schemas.microsoft.com/winfx/2006/xaml"
+        xmlns:d="http://schemas.microsoft.com/expression/blend/2008"
+        xmlns:mc="http://schemas.openxmlformats.org/markup-compatibility/2006"
+        xmlns:local="clr-namespace:New"
+        xmlns:zdfFlatUi="clr-namespace:ZdfFlatUI;assembly=WPF.UI"
+        FontFamily="苹方黑体-中粗-简"
+        mc:Ignorable="d" 
+        Title="MainWindow" Height="350" Width="525">
+    <Grid>
+           <Grid.RowDefinitions>
+                <RowDefinition Height="*"></RowDefinition>
+                <RowDefinition Height="8*"></RowDefinition>
+            </Grid.RowDefinitions>
+            <DockPanel Grid.Row="1">
+           
+            <zdfFlatUi:ZTabControl>
+                <TabItem Header="历史警情">
+                    <Border>
+                        <TextBlock Text="TabItem1" VerticalAlignment="Center" HorizontalAlignment="Center" />
+                    </Border>
+                </TabItem>
+            </zdfFlatUi:ZTabControl>
+
+        </DockPanel>
+            <DockPanel Grid.Row="1">
+                
+            </DockPanel>
+
+    </Grid>
+</Window>
