@@ -18,9 +18,9 @@ namespace New.Views
     /// <summary>
     /// Login.xaml 的交互逻辑
     /// </summary>
-    public partial class Login : UserControl
+    public partial class CaseList : UserControl
     {
-        public Login()
+        public CaseList()
         {
             InitializeComponent();
         }

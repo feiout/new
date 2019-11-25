@@ -1,4 +1,4 @@
-﻿<Window x:Class="New.MainWindow"
+﻿<Window x:Class="New.MainWindow" WindowState="Maximized"
         xmlns="http://schemas.microsoft.com/winfx/2006/xaml/presentation"
         xmlns:x="http://schemas.microsoft.com/winfx/2006/xaml"
         xmlns:d="http://schemas.microsoft.com/expression/blend/2008"
@@ -14,17 +14,36 @@
                 <RowDefinition Height="8*"></RowDefinition>
             </Grid.RowDefinitions>
             <DockPanel Grid.Row="1">
-           
-            <zdfFlatUi:ZTabControl>
-                <TabItem Header="历史警情">
+
+            <zdfFlatUi:ZTabControl Margin="10" Type="Card">
+                <TabItem Header="CallList" FontSize="15" Width="90" >
                     <Border>
-                        <TextBlock Text="TabItem1" VerticalAlignment="Center" HorizontalAlignment="Center" />
+                        <TextBlock Text="CallList" VerticalAlignment="Center" HorizontalAlignment="Center" />
+                    </Border>
+                </TabItem>
+                <TabItem Header="CaseList" FontSize="15" Width="90">
+                    <Grid>
+                        <TextBlock Text="CaseList" VerticalAlignment="Center" HorizontalAlignment="Center" />
+                    </Grid>
+                </TabItem>
+                <TabItem Header="LeadList" FontSize="15" Width="90">
+                    <Border>
+                        <TextBlock Text="LeadList" VerticalAlignment="Center" HorizontalAlignment="Center" />
+                    </Border>
+                </TabItem>
+                <TabItem Header="Company" FontSize="15" Width="90" HorizontalAlignment="Stretch">
+                    <Border>
+                        <TextBlock Text="Company" VerticalAlignment="Center" HorizontalAlignment="Center" />
+                    </Border>
+                </TabItem>
+                <TabItem Header="Input" FontSize="15" Width="90">
+                    <Border>
+                        <TextBlock Text="Input" VerticalAlignment="Center" HorizontalAlignment="Center" />
                     </Border>
                 </TabItem>
             </zdfFlatUi:ZTabControl>
-
         </DockPanel>
-            <DockPanel Grid.Row="1">
+            <DockPanel Grid.Row="0">
                 
             </DockPanel>
 

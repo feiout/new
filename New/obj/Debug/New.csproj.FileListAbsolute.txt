@@ -20,3 +20,7 @@ D:\Project\New\New\obj\Debug\Views\Content.baml
 D:\Project\New\New\obj\Debug\Views\Login.baml
 D:\Project\New\New\obj\Debug\LoginWindow.g.cs
 D:\Project\New\New\obj\Debug\LoginWindow.baml
+D:\Project\new\New\bin\Debug\WPF.UI.dll
+D:\Project\new\New\bin\Debug\Microsoft.Expression.Drawing.dll
+D:\Project\new\New\bin\Debug\System.Windows.Interactivity.dll
+D:\Project\new\New\bin\Debug\Microsoft.Expression.Drawing.xml

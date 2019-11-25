@@ -91,11 +91,11 @@
     <Compile Include="Service\UserService.cs" />
     <Compile Include="ViewModels\VmMainWindow.cs" />
     <Compile Include="ViewModels\VmUser.cs" />
-    <Compile Include="Views\Content.xaml.cs">
-      <DependentUpon>Content.xaml</DependentUpon>
+    <Compile Include="Views\CallList.xaml.cs">
+      <DependentUpon>CallList.xaml</DependentUpon>
     </Compile>
-    <Compile Include="Views\Login.xaml.cs">
-      <DependentUpon>Login.xaml</DependentUpon>
+    <Compile Include="Views\CaseList.xaml.cs">
+      <DependentUpon>CaseList.xaml</DependentUpon>
     </Compile>
     <Page Include="LoginWindow.xaml">
       <SubType>Designer</SubType>
@@ -113,11 +113,11 @@
       <DependentUpon>MainWindow.xaml</DependentUpon>
       <SubType>Code</SubType>
     </Compile>
-    <Page Include="Views\Content.xaml">
+    <Page Include="Views\CallList.xaml">
       <SubType>Designer</SubType>
       <Generator>MSBuild:Compile</Generator>
     </Page>
-    <Page Include="Views\Login.xaml">
+    <Page Include="Views\CaseList.xaml">
       <SubType>Designer</SubType>
       <Generator>MSBuild:Compile</Generator>
     </Page>

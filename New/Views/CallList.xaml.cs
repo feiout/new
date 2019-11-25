@@ -18,9 +18,9 @@ namespace New.Views
     /// <summary>
     /// Content.xaml 的交互逻辑
     /// </summary>
-    public partial class Content : UserControl
+    public partial class CallList : UserControl
     {
-        public Content()
+        public CallList()
         {
             InitializeComponent();
         }
