@@ -4,10 +4,38 @@
         xmlns:d="http://schemas.microsoft.com/expression/blend/2008"
         xmlns:mc="http://schemas.openxmlformats.org/markup-compatibility/2006"
         xmlns:local="clr-namespace:New"
-        mc:Ignorable="d"
-        Title="LoginWindow" Height="300" Width="300">
-    <DockPanel>
-        <TextBlock Text="This is Login window"></TextBlock>
-        <Button Content="Login" Width="120" Height="40" Click="ButtonBase_OnClick"></Button>
-    </DockPanel>
+        mc:Ignorable="d" Height="360" Width="600" ResizeMode="NoResize"
+        Title="L2R Login" MaxWidth="600" MaxHeight="360">
+    <Grid x:Name="LoginGrid" Height="240" Width="500" >
+        <Grid.RowDefinitions>
+            <RowDefinition Height="30*"/>
+            <RowDefinition Height="30*"/>
+            <RowDefinition Height="30*"/>
+        </Grid.RowDefinitions>
+        <DockPanel Grid.Row="0" >
+            <TextBlock Text="UserName: " DockPanel.Dock="Left" TextAlignment="Center" FontFamily="Arial" FontSize="24" Margin="0,28,0,10.291" Width="157" FontWeight="Bold"/>
+            <TextBox x:Name="UserName" Text="52486846@qq.com" Margin="0,18,25,15" Width="310" FontFamily="Arial" FontSize="24" />
+        </DockPanel>
+        <DockPanel Grid.Row="1">
+            <TextBlock Text="Password: " DockPanel.Dock="Left" TextAlignment="Center" FontFamily="Arial" FontSize="24" Margin="0,28,0,10.291" Width="157" FontWeight="Bold"/>
+            <PasswordBox x:Name="Password" Margin="0,18,25,15" Width="310" Password="123jklJKL" FontFamily="Arial" FontSize="24"/>
+        </DockPanel>
+        <Border Height="Auto" Grid.Row="2" Width="auto">
+            <DockPanel>
+                <Grid>
+                    <Grid.ColumnDefinitions>
+                        <ColumnDefinition Width="150"/>
+                        <ColumnDefinition Width="30*"/>
+                    </Grid.ColumnDefinitions>
+                    <DockPanel Grid.Column="0" Grid.Row="0" Margin="30,30,0,0">
+                        <CheckBox x:Name="CheckBox" FontFamily="Arial" FontSize="20" FontWeight="Bold" FontStyle="Italic" Content="CTI" />
+                    </DockPanel>
+                    <DockPanel Grid.Column="1" Grid.Row="0">
+                        <Button Name="LoginButton" FontFamily="Arial" FontSize="24" FontWeight="Bold" Click="LoginButton_Click" Width="160" Margin="0,10,0,10" Content="Login" />
+                        <Button Name="CloseButton" FontFamily="Arial" FontSize="24" FontWeight="Bold" Click="CloseButton_Click" Width="160" Margin="0,10,0,10" Content="Cancel"/>
+                    </DockPanel>
+                </Grid>
+            </DockPanel>
+        </Border>
+    </Grid>
 </Window>

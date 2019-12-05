@@ -6,8 +6,8 @@ namespace New.Entity
 {
     public class User : NotificationObject
     {
-        private long _id;
-        public long id
+        private int _id;
+        public int id
         {
             get { return _id; }
             set
@@ -20,58 +20,86 @@ namespace New.Entity
             }
         }
 
-        private string _Name;
-        public string Name
+        private string _name;
+        public string name
         {
-            get { return _Name; }
+            get { return _name; }
             set
             {
-                if (_Name != value)
+                if (_name != value)
                 {
-                    _Name = value;
-                    RaisePropertyChanged("Name");
+                    _name = value;
+                    RaisePropertyChanged("name");
                 }
             }
         }
 
-        private string _Department;
-        public string Department
+        private string _department;
+        public string department
         {
-            get { return _Department; }
+            get { return _department; }
             set
             {
-                if (_Department != value)
+                if (_department != value)
                 {
-                    _Department = value;
-                    RaisePropertyChanged("Department");
+                    _department = value;
+                    RaisePropertyChanged("department");
                 }
             }
         }
 
-        private string _UserType;
-        public string UserType
+        private string _userType;
+        public string userType
         {
-            get { return _UserType; }
+            get { return _userType; }
             set
             {
-                if (_UserType != value)
+                if (_userType != value)
                 {
-                    _UserType = value;
-                    RaisePropertyChanged("UserType");
+                    _userType = value;
+                    RaisePropertyChanged("userType");
                 }
             }
         }
 
-        private int _SubscriptionId;
-        public int SubscriptionId
+        private int _subscriptionId;
+        public int subscriptionId
         {
-            get { return _SubscriptionId; }
+            get { return _subscriptionId; }
             set
             {
-                if (_SubscriptionId != value)
+                if (_subscriptionId != value)
                 {
-                    _SubscriptionId = value;
-                    RaisePropertyChanged("SubscriptionId");
+                    _subscriptionId = value;
+                    RaisePropertyChanged("subscriptionId");
+                }
+            }
+        }
+
+        private Userlogin _userlogin;
+        public Userlogin userlogin
+        {
+            get { return _userlogin; }
+            set
+            {
+                if (_userlogin != value)
+                {
+                    _userlogin = value;
+                    RaisePropertyChanged("userlogin");
+                }
+            }
+        }
+
+        private string _status;
+        public string status
+        {
+            get { return _status; }
+            set
+            {
+                if (_status != value)
+                {
+                    _status = value;
+                    RaisePropertyChanged("status");
                 }
             }
         }

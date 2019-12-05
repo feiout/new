@@ -11,6 +11,9 @@ using System.Windows.Input;
 using System.Windows.Media;
 using System.Windows.Media.Imaging;
 using System.Windows.Shapes;
+using New.Entity;
+using New.RestUtility;
+using New.Service;
 
 namespace New
 {
@@ -19,17 +22,38 @@ namespace New
     /// </summary>
     public partial class LoginWindow : Window
     {
+        private readonly UserService _userService = ServiceHelper<UserService>.CreateInterface();
         public LoginWindow()
         {
             InitializeComponent();
         }
 
-        private void ButtonBase_OnClick(object sender, RoutedEventArgs e)
+
+        private void LoginButton_Click(object sender, RoutedEventArgs e)
         {
-            var mainWindow=new MainWindow("Nelson");
-            mainWindow.Show();
-            this.Close();
-            
+            User user=new User();
+            user.userlogin = new Userlogin();
+            user.userlogin.loginName= UserName.Text.Trim();
+            user.userlogin.password = Password.Password.Trim();
+
+            user=_userService.Authentication(user);
+//            if (user == null)
+            if (string.Equals(user.status, "Error"))
+            {
+                MessageBox.Show(@"Logon failed");
+            }
+            else
+            {
+                var mainWindow = new MainWindow(user);
+                mainWindow.Show();
+                this.Close();
+            }
+        }
+
+        private void CloseButton_Click(object sender, RoutedEventArgs e)
+        {
+            Application.Current.MainWindow.Close();
+
         }
     }
 }

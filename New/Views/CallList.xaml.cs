@@ -20,9 +20,22 @@ namespace New.Views
     /// </summary>
     public partial class CallList : UserControl
     {
+        private int _loadedTimes;
         public CallList()
         {
             InitializeComponent();
+            
+            
+        }
+
+        private void CallList_OnInitialized(object sender, EventArgs e)
+        {
+            if (_loadedTimes > 0)
+            {
+                return;
+            }
+//            MessageBox.Show("Call ....");
+            _loadedTimes++;
         }
     }
 }

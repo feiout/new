@@ -3,33 +3,40 @@
         xmlns:x="http://schemas.microsoft.com/winfx/2006/xaml"
         xmlns:d="http://schemas.microsoft.com/expression/blend/2008"
         xmlns:mc="http://schemas.openxmlformats.org/markup-compatibility/2006"
-        xmlns:local="clr-namespace:New"
+        xmlns:local="clr-namespace:New" 
         xmlns:zdfFlatUi="clr-namespace:ZdfFlatUI;assembly=WPF.UI"
+        xmlns:views="clr-namespace:New.Views"
         FontFamily="苹方黑体-中粗-简"
-        mc:Ignorable="d" 
-        Title="MainWindow" Height="350" Width="525">
+        mc:Ignorable="d"
+        Title="L2R" Height="350" Width="525">
     <Grid>
            <Grid.RowDefinitions>
-                <RowDefinition Height="*"></RowDefinition>
+                <RowDefinition Height="70"></RowDefinition>
                 <RowDefinition Height="8*"></RowDefinition>
             </Grid.RowDefinitions>
-            <DockPanel Grid.Row="1">
+        <DockPanel Grid.Row="0">
+            <DataGrid></DataGrid>
+        </DockPanel>
+        <DockPanel Grid.Row="1">
 
-            <zdfFlatUi:ZTabControl Margin="10" Type="Card">
-                <TabItem Header="CallList" FontSize="15" Width="90" >
-                    <Border>
-                        <TextBlock Text="CallList" VerticalAlignment="Center" HorizontalAlignment="Center" />
-                    </Border>
+            <zdfFlatUi:ZTabControl Margin="10" Type="Card" x:Name="MainTab">
+                <TabItem Header="CallList" FontSize="15" Width="90" x:Name="Item1">
+                    <!--                    <Border>-->
+                    <!--                        <TextBlock Text="CallList" VerticalAlignment="Center" HorizontalAlignment="Center" />-->
+                    <!--                    </Border>-->
+                    <views:CallList></views:CallList>
                 </TabItem>
                 <TabItem Header="CaseList" FontSize="15" Width="90">
-                    <Grid>
-                        <TextBlock Text="CaseList" VerticalAlignment="Center" HorizontalAlignment="Center" />
-                    </Grid>
+                    <!--                    <Grid>-->
+                    <!--                        <TextBlock Text="CaseList" VerticalAlignment="Center" HorizontalAlignment="Center" />-->
+                    <!--                    </Grid>-->
+                    <views:CaseList></views:CaseList>
                 </TabItem>
                 <TabItem Header="LeadList" FontSize="15" Width="90">
-                    <Border>
-                        <TextBlock Text="LeadList" VerticalAlignment="Center" HorizontalAlignment="Center" />
-                    </Border>
+                    <!--                    <Border>-->
+                    <!--                        <TextBlock Text="LeadList" VerticalAlignment="Center" HorizontalAlignment="Center" />-->
+                    <!--                    </Border>-->
+                    <views:CallList></views:CallList>
                 </TabItem>
                 <TabItem Header="Company" FontSize="15" Width="90" HorizontalAlignment="Stretch">
                     <Border>
@@ -43,9 +50,6 @@
                 </TabItem>
             </zdfFlatUi:ZTabControl>
         </DockPanel>
-            <DockPanel Grid.Row="0">
-                
-            </DockPanel>
 
     </Grid>
 </Window>

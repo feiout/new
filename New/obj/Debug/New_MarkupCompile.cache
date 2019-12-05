@@ -10,11 +10,11 @@ none
 false
 DEBUG;TRACE
 D:\Project\new\New\App.xaml
-41942943545
+61023221014
 461685103556
-331044889231
+37-438975972
 161286650486
-LoginWindow.xaml;MainWindow.xaml;Views\Content.xaml;Views\Login.xaml;
+LoginWindow.xaml;MainWindow.xaml;Styles\Dictionary.xaml;Styles\TotalStyles.xaml;Views\CallList.xaml;Views\CaseList.xaml;
 
 False
 

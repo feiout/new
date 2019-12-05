@@ -12,6 +12,7 @@ using System.Windows.Media;
 using System.Windows.Media.Imaging;
 using System.Windows.Navigation;
 using System.Windows.Shapes;
+using New.Entity;
 using New.ViewModels;
 using New.Views;
 
@@ -22,11 +23,11 @@ namespace New
     /// </summary>
     public partial class MainWindow : Window
     {
-        public MainWindow(string userName)
+        public MainWindow(User user)
         {        
             InitializeComponent();
-           
+            MessageBox.Show(user.name);
         }
-
+        
     }
 }

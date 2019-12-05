@@ -20,9 +20,21 @@ namespace New.Views
     /// </summary>
     public partial class CaseList : UserControl
     {
+        private int _loadedTimes;
         public CaseList()
         {
             InitializeComponent();
+        }
+
+
+        private void CaseList_OnInitialized(object sender, EventArgs e)
+        {
+            if (_loadedTimes > 0)
+            {
+                return;
+            }
+//            MessageBox.Show("Case ....");
+            _loadedTimes++;
         }
     }
 }
