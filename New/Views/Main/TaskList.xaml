@@ -1,0 +1,153 @@
+﻿<base:ChildControlBase x:Class="New.Views.Main.TaskList"
+             xmlns="http://schemas.microsoft.com/winfx/2006/xaml/presentation"
+             xmlns:x="http://schemas.microsoft.com/winfx/2006/xaml"
+             xmlns:mc="http://schemas.openxmlformats.org/markup-compatibility/2006" 
+             xmlns:d="http://schemas.microsoft.com/expression/blend/2008"
+             xmlns:torpedo="http://schemas.torpedo.com/2008/xaml/presentation"
+             xmlns:base="clr-namespace:New.Base"
+             mc:Ignorable="d" Initialized="TaskList_OnInitializedList_OnInitialized"
+             d:DesignHeight="768" d:DesignWidth="1366">
+    <Grid>
+        <Grid.RowDefinitions>
+            <RowDefinition Height="30"></RowDefinition>
+            <RowDefinition Height="*"></RowDefinition>
+        </Grid.RowDefinitions>
+        <Grid Row="0" Margin="0,0,0,1">
+            <Grid DockPanel.Dock="Top" Height="Auto" Background="#9fa8da">
+                <Grid.ColumnDefinitions>
+                    <ColumnDefinition Width="425"></ColumnDefinition>
+                    <ColumnDefinition Width="95"></ColumnDefinition>
+                    <ColumnDefinition Width="*"></ColumnDefinition>
+                </Grid.ColumnDefinitions>
+                <Grid Grid.Row="0" Grid.Column="0" VerticalAlignment="Center">
+                    <Grid.ColumnDefinitions>
+                        <ColumnDefinition Width="70"></ColumnDefinition>
+                        <ColumnDefinition Width="150"></ColumnDefinition>
+                        <ColumnDefinition Width="55"></ColumnDefinition>
+                        <ColumnDefinition Width="150"></ColumnDefinition>
+                    </Grid.ColumnDefinitions>
+                    <TextBlock Text="Campaign " Grid.Row="0" Grid.Column="0" Style="{DynamicResource Text-Block-Title}"/>
+                    <torpedo:RadAutoCompleteBox Name="Campaign" Grid.Row="0" Grid.Column="1" InputMethod.IsInputMethodEnabled="False" Width="auto" Style="{DynamicResource Rad-Auto-Complete-Box}"
+                                            ItemsSource="{Binding CommonSearchDTOList,Mode=TwoWay}" DisplayMemberPath="name" SelectedItems="{Binding CommonSearchDTO}" 
+                                            SelectionMode="Single" TextSearchMode="Contains" TextSearchPath="name" AutoCompleteMode="SuggestAppend"  SearchText="{Binding name,Mode=OneWay}" 
+                                            ToolTip="Quick search like : company name ,customer name, phone, email" />
+                    <TextBlock Text="Status " Grid.Row="0" Grid.Column="2" Style="{DynamicResource Text-Block-Title}"/>
+                    <torpedo:RadComboBox x:Name="CallListStatusBox" Grid.Row="0" Grid.Column="3" Style="{DynamicResource Rad-ComboBox}"
+                                             ItemsSource="{Binding Dictionary[TaskType], Mode=OneWay}"
+                                             DisplayMemberPath="Name" SelectedValuePath="Code" />
+                </Grid>
+                <StackPanel Grid.Row="0" Grid.Column="1" Orientation="Horizontal" HorizontalAlignment="Center" Height="auto">
+                    <Grid Width="90">
+                        <Grid.RowDefinitions>
+                            <RowDefinition Height="30"></RowDefinition>
+                        </Grid.RowDefinitions>
+                        <Grid.ColumnDefinitions>
+                            <ColumnDefinition Width="1*"></ColumnDefinition>
+                            <ColumnDefinition Width="1*"></ColumnDefinition>
+                            <ColumnDefinition Width="1*"></ColumnDefinition>
+                        </Grid.ColumnDefinitions>
+                        <Button  HorizontalAlignment="Center" Style="{DynamicResource Search}" ToolTip="查询callList..."  Grid.Row="0" Grid.Column="0" />
+                        <Button  HorizontalAlignment="Center" Style="{DynamicResource Refresh}" ToolTip="刷新callList..." Grid.Row="0" Grid.Column="1"/>
+                        <Button  HorizontalAlignment="Center" Style="{DynamicResource Plus}"  ToolTip="创建case..." Grid.Row="0" Grid.Column="2" Click="ButtonBase_OnClick"/>
+
+                    </Grid>
+                </StackPanel>
+                <Grid Grid.Row="0" Grid.Column="2">
+                    <torpedo:RadAutoCompleteBox Name="Search" InputMethod.IsInputMethodEnabled="False" Width="auto" Style="{DynamicResource Rad-Auto-Complete-Box}"
+                                            ItemsSource="{Binding CommonSearchDTOList,Mode=TwoWay}" DisplayMemberPath="name" SelectedItems="{Binding CommonSearchDTO}" 
+                                            SelectionMode="Single" TextSearchMode="Contains" TextSearchPath="name" AutoCompleteMode="SuggestAppend"  SearchText="{Binding name,Mode=OneWay}" 
+                                            ToolTip="Quick search like : company name ,customer name, phone, email" />
+                </Grid>
+            </Grid>
+        </Grid>
+
+        <Grid Row="1" Margin="0,0,0,1">
+            <torpedo:RadGridView x:Name="GridDrug" 
+                             Style="{DynamicResource GridViewNormal}" HeaderRowStyle="{DynamicResource GridViewHeaderRow}"
+                             RowStyle="{DynamicResource GridViewRowNormal}" AlternateRowStyle="{DynamicResource GridViewAlternateRowNormal}"
+                             ItemsSource="{Binding UserList,Mode=TwoWay}"  IsReadOnly="True"  SelectionMode="Single" >
+                <torpedo:RadGridView.Columns>
+                    <torpedo:GridViewDataColumn Header="UserName" Width="1.5*"  HeaderCellStyle="{DynamicResource GridViewHeaderCell}">
+                        <torpedo:GridViewColumn.CellTemplate>
+                            <DataTemplate>
+                                <torpedo:RadButton Style="{DynamicResource ButtonInCell}" Content="{Binding name}" Tag="{Binding id}" Click="UserName_OnClick"/>
+                            </DataTemplate>
+                        </torpedo:GridViewColumn.CellTemplate>
+                    </torpedo:GridViewDataColumn>
+
+                    <torpedo:GridViewDataColumn Header="Department" Width="1.5*"  HeaderCellStyle="{DynamicResource GridViewHeaderCell}">
+                        <torpedo:GridViewColumn.CellTemplate>
+                            <DataTemplate>
+                                <torpedo:RadButton Style="{DynamicResource ButtonInCell}" Content="{Binding department}" Tag="{Binding id}" />
+                            </DataTemplate>
+                        </torpedo:GridViewColumn.CellTemplate>
+                    </torpedo:GridViewDataColumn>
+
+                    <torpedo:GridViewDataColumn Header="UserType" Width="1.5*" HeaderCellStyle="{DynamicResource GridViewHeaderCell}">
+                        <torpedo:GridViewColumn.CellTemplate>
+                            <DataTemplate>
+                                <torpedo:RadButton Style="{DynamicResource ButtonInCell}" Content="{Binding userType}" Tag="{Binding id}" />
+                            </DataTemplate>
+                        </torpedo:GridViewColumn.CellTemplate>
+                    </torpedo:GridViewDataColumn>
+                    
+                </torpedo:RadGridView.Columns>
+            </torpedo:RadGridView>
+        </Grid>
+        <!--        <Grid Row="1">-->
+<!--            <DataGrid x:Name="GridSpcList"  GridLinesVisibility="None" HorizontalAlignment="Left" AutoGenerateColumns="False" Style="{DynamicResource DataGridStyle}"  HeadersVisibility="Column"  ItemsSource="{Binding UserList}" Grid.Column="0">-->
+<!--                <DataGrid.Columns>-->
+<!--                    <DataGridTemplateColumn Header="CallListId" Width="*">-->
+<!--                        <DataGridTemplateColumn.CellTemplate>-->
+<!--                            <DataTemplate>-->
+<!--                                <Button Content="{Binding name}" Tag="{Binding id}" Style="{DynamicResource Button}" Name="userName"></Button>-->
+<!--                            </DataTemplate>-->
+<!--                        </DataGridTemplateColumn.CellTemplate>-->
+<!--                    </DataGridTemplateColumn>-->
+<!--                    <DataGridTemplateColumn Header="Company" Width="*">-->
+<!--                        <DataGridTemplateColumn.CellTemplate>-->
+<!--                            <DataTemplate>-->
+<!--                                <Button Content="{Binding Company}" Tag="{Binding id}" Style="{DynamicResource Button}" Name="department" ></Button>-->
+<!--                            </DataTemplate>-->
+<!--                        </DataGridTemplateColumn.CellTemplate>-->
+<!--                    </DataGridTemplateColumn>-->
+<!--                    <DataGridTemplateColumn Header="Name" Width="*">-->
+<!--                        <DataGridTemplateColumn.CellTemplate>-->
+<!--                            <DataTemplate>-->
+<!--                                <Button Content="{Binding Industry}" Tag="{Binding id}" Style="{DynamicResource Button}" Name="department" ></Button>-->
+<!--                            </DataTemplate>-->
+<!--                        </DataGridTemplateColumn.CellTemplate>-->
+<!--                    </DataGridTemplateColumn>-->
+<!--                    <DataGridTemplateColumn Header="Department" Width="*">-->
+<!--                        <DataGridTemplateColumn.CellTemplate>-->
+<!--                            <DataTemplate>-->
+<!--                                <Button Content="{Binding department}" Tag="{Binding id}" Style="{DynamicResource Button}" Name="department" ></Button>-->
+<!--                            </DataTemplate>-->
+<!--                        </DataGridTemplateColumn.CellTemplate>-->
+<!--                    </DataGridTemplateColumn>-->
+<!--                    <DataGridTemplateColumn Header="Workphone" Width="*">-->
+<!--                        <DataGridTemplateColumn.CellTemplate>-->
+<!--                            <DataTemplate>-->
+<!--                                <Button Content="{Binding Workphone}" Tag="{Binding id}" Style="{DynamicResource Button}" Name="department" ></Button>-->
+<!--                            </DataTemplate>-->
+<!--                        </DataGridTemplateColumn.CellTemplate>-->
+<!--                    </DataGridTemplateColumn>-->
+<!--                    <DataGridTemplateColumn Header="Cellphone" Width="*">-->
+<!--                        <DataGridTemplateColumn.CellTemplate>-->
+<!--                            <DataTemplate>-->
+<!--                                <Button Content="{Binding Cellphone}" Tag="{Binding id}" Style="{DynamicResource Button}" Name="department" ></Button>-->
+<!--                            </DataTemplate>-->
+<!--                        </DataGridTemplateColumn.CellTemplate>-->
+<!--                    </DataGridTemplateColumn>-->
+<!--                    <DataGridTemplateColumn Header="UserType" Width="*">-->
+<!--                        <DataGridTemplateColumn.CellTemplate>-->
+<!--                            <DataTemplate>-->
+<!--                                <Button Content="{Binding userType}" Tag="{Binding id}" Style="{DynamicResource Button}" Name="userType" ></Button>-->
+<!--                            </DataTemplate>-->
+<!--                        </DataGridTemplateColumn.CellTemplate>-->
+<!--                    </DataGridTemplateColumn>-->
+<!--                </DataGrid.Columns>-->
+<!--            </DataGrid>-->
+<!--        </Grid>-->
+    </Grid>
+</base:ChildControlBase>

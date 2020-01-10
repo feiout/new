@@ -1,0 +1,156 @@
+﻿<base:ChildControlBase x:Class="New.Views.Main.LeadList"
+             xmlns="http://schemas.microsoft.com/winfx/2006/xaml/presentation"
+             xmlns:x="http://schemas.microsoft.com/winfx/2006/xaml"
+             xmlns:mc="http://schemas.openxmlformats.org/markup-compatibility/2006" 
+             xmlns:d="http://schemas.microsoft.com/expression/blend/2008"
+                       xmlns:base="clr-namespace:New.Base"
+                       xmlns:torpedo="http://schemas.torpedo.com/2008/xaml/presentation"
+                       mc:Ignorable="d" Initialized="LeadList_OnInitialized"
+             d:DesignHeight="768" d:DesignWidth="1366">
+    <Grid>
+        <Grid.RowDefinitions>
+            <RowDefinition Height="30"></RowDefinition>
+            <RowDefinition Height="*"></RowDefinition>
+        </Grid.RowDefinitions>
+        <Grid Row="0" Margin="0,0,0,1">
+            <Grid DockPanel.Dock="Top" Height="Auto" Background="#9fa8da">
+                <Grid.ColumnDefinitions>
+                    <ColumnDefinition Width="70"></ColumnDefinition>
+                    <ColumnDefinition Width="150"></ColumnDefinition>
+                    <ColumnDefinition Width="55"></ColumnDefinition>
+                    <ColumnDefinition Width="150"></ColumnDefinition>
+                    <ColumnDefinition Width="18"></ColumnDefinition>
+                    <ColumnDefinition Width="80"></ColumnDefinition>
+                    <ColumnDefinition Width="5"></ColumnDefinition>
+                    <ColumnDefinition Width="110"></ColumnDefinition>
+                    <ColumnDefinition Width="18"></ColumnDefinition>
+                    <ColumnDefinition Width="110"></ColumnDefinition>
+                    <ColumnDefinition Width="45"></ColumnDefinition>
+                    <ColumnDefinition Width="90"></ColumnDefinition>
+
+                    <ColumnDefinition Width="60"></ColumnDefinition>
+                    <ColumnDefinition Width="*"></ColumnDefinition>
+                </Grid.ColumnDefinitions>
+                <TextBlock Text=" Campaign" Grid.Row="0" Grid.Column="0" TextAlignment="Right" HorizontalAlignment="Center" FontSize="12" FontWeight="Bold" Margin="0,8,0,0"/>
+                <torpedo:RadAutoCompleteBox Name="Campaign" Grid.Row="0" Grid.Column="1" InputMethod.IsInputMethodEnabled="False" Width="auto" Style="{DynamicResource Rad-Auto-Complete-Box}"
+                                            ItemsSource="{Binding CommonSearchDTOList,Mode=TwoWay}" DisplayMemberPath="name" SelectedItems="{Binding CommonSearchDTO}"
+                                            SelectionMode="Single" TextSearchMode="Contains" TextSearchPath="name" AutoCompleteMode="SuggestAppend"  SearchText="{Binding name,Mode=OneWay}" 
+                                            ToolTip="Quick search like : company name ,customer name, phone, email" />
+                <TextBlock Text=" Status" Grid.Row="0" Grid.Column="2" TextAlignment="Right" HorizontalAlignment="Center" FontSize="12" FontWeight="Bold" Margin="0,8,0,0"/>
+                <torpedo:RadComboBox x:Name="CaseStatus" Grid.Row="0" Grid.Column="3" Style="{DynamicResource Rad-ComboBox}"
+                                             ItemsSource="{Binding Dictionary[CaseStatus], Mode=OneWay}" 
+                                             DisplayMemberPath="Name" SelectedValuePath="Code" />
+                <torpedo:RadComboBox x:Name="DateType" ItemsSource="{Binding Dictionary[DateType], Mode=OneWay}" Background="#9fa8da"                                                
+                                            Style="{DynamicResource Rad-ComboBox}" FontWeight="Bold"
+                                            DisplayMemberPath="Name" SelectedValuePath="Code" Grid.Row="0" Grid.Column="5" 
+                                            Loaded="DateType_OnLoaded">
+                </torpedo:RadComboBox>
+                <torpedo:RadDatePicker Style="{DynamicResource Rad-DatePicker}" 
+                                       DateTimeWatermarkContent="start" Name="Cstart" Grid.Row="0" Grid.Column="7" Margin="0,1,0,1"/>
+                <TextBlock Text="~" Style="{DynamicResource Text-Block-Title}" Grid.Row="0" Grid.Column="8" TextAlignment="Center" />
+                <torpedo:RadDatePicker Style="{DynamicResource Rad-DatePicker}" 
+                                       HorizontalAlignment="Left" 
+                                    DateTimeWatermarkContent="end" Name="Cend" Grid.Row="0" Grid.Column="9" Margin="0,1,0,1"/>
+
+
+                <TextBlock Text=" Sales" Grid.Row="0" Grid.Column="10" TextAlignment="Right" HorizontalAlignment="Center" FontSize="12" FontWeight="Bold" Margin="0,8,0,0"/>
+                <torpedo:RadComboBox x:Name="SalesCombox" Grid.Row="0" Grid.Column="11" Style="{DynamicResource Rad-ComboBox}"
+                                             ItemsSource="{Binding Dictionary[CaseType], Mode=OneWay}"
+                                             DisplayMemberPath="Name" SelectedValuePath="Code" />
+                
+
+                <StackPanel Grid.Row="0" Grid.Column="12" Orientation="Horizontal" HorizontalAlignment="Center" Height="auto">
+                    <Grid>
+                        <Grid.ColumnDefinitions>
+                            <ColumnDefinition Width="1*"></ColumnDefinition>
+                            <ColumnDefinition Width="1*"></ColumnDefinition>
+                        </Grid.ColumnDefinitions>
+                        <Button  HorizontalAlignment="Center" Grid.Row="0" Grid.Column="0" Style="{DynamicResource Search}" ToolTip="查询callList..."  />
+                        <Button  HorizontalAlignment="Center" Grid.Row="0" Grid.Column="1" Style="{DynamicResource Refresh}" ToolTip="刷新callList..."/>
+                    </Grid>
+                </StackPanel>
+                <Grid Grid.Row="0" Grid.Column="13">
+                    <torpedo:RadAutoCompleteBox Name="Search" InputMethod.IsInputMethodEnabled="False" Width="auto" Style="{DynamicResource Rad-Auto-Complete-Box}"
+                                            ItemsSource="{Binding CommonSearchDTOList,Mode=TwoWay}" DisplayMemberPath="name" SelectedItems="{Binding CommonSearchDTO}" 
+                                            SelectionMode="Single" TextSearchMode="Contains" TextSearchPath="name" AutoCompleteMode="SuggestAppend"  SearchText="{Binding name,Mode=OneWay}" 
+                                            ToolTip="Quick search like : company name ,customer name, phone, email" />
+                </Grid>
+
+            </Grid>
+        </Grid>
+
+        <Grid Row="1" Margin="0,0,0,1">
+            <torpedo:RadGridView x:Name="GridDrug" 
+                             Style="{DynamicResource GridViewNormal}" HeaderRowStyle="{DynamicResource GridViewHeaderRow}"
+                             RowStyle="{DynamicResource GridViewRowNormal}" AlternateRowStyle="{DynamicResource GridViewAlternateRowNormal}"
+                             ItemsSource="{Binding UserList,Mode=TwoWay}"  IsReadOnly="True"  SelectionMode="Single" >
+                <torpedo:RadGridView.Columns>
+                    <torpedo:GridViewDataColumn Header="LeadID" Width="1.5*"  HeaderCellStyle="{DynamicResource GridViewHeaderCell}">
+                        <torpedo:GridViewColumn.CellTemplate>
+                            <DataTemplate>
+                                <torpedo:RadButton Style="{DynamicResource ButtonInCell}" Content="{Binding name}" Tag="{Binding id}" />
+                            </DataTemplate>
+                        </torpedo:GridViewColumn.CellTemplate>
+                    </torpedo:GridViewDataColumn>
+
+                    <torpedo:GridViewDataColumn Header="Company" Width="1.5*"  HeaderCellStyle="{DynamicResource GridViewHeaderCell}">
+                        <torpedo:GridViewColumn.CellTemplate>
+                            <DataTemplate>
+                                <torpedo:RadButton Style="{DynamicResource ButtonInCell}" Content="{Binding department}" Tag="{Binding id}" />
+                            </DataTemplate>
+                        </torpedo:GridViewColumn.CellTemplate>
+                    </torpedo:GridViewDataColumn>
+
+                    <torpedo:GridViewDataColumn Header="Name" Width="1.5*" HeaderCellStyle="{DynamicResource GridViewHeaderCell}">
+                        <torpedo:GridViewColumn.CellTemplate>
+                            <DataTemplate>
+                                <torpedo:RadButton Style="{DynamicResource ButtonInCell}" Content="{Binding userType}" Tag="{Binding id}" />
+                            </DataTemplate>
+                        </torpedo:GridViewColumn.CellTemplate>
+                    </torpedo:GridViewDataColumn>
+
+                    <torpedo:GridViewDataColumn Header="Workphone" Width="1.5*"  HeaderCellStyle="{DynamicResource GridViewHeaderCell}">
+                        <torpedo:GridViewColumn.CellTemplate>
+                            <DataTemplate>
+                                <torpedo:RadButton Style="{DynamicResource ButtonInCell}" Content="{Binding department}" Tag="{Binding id}" />
+                            </DataTemplate>
+                        </torpedo:GridViewColumn.CellTemplate>
+                    </torpedo:GridViewDataColumn>
+
+                    <torpedo:GridViewDataColumn Header="Cellphone" Width="1.5*" HeaderCellStyle="{DynamicResource GridViewHeaderCell}">
+                        <torpedo:GridViewColumn.CellTemplate>
+                            <DataTemplate>
+                                <torpedo:RadButton Style="{DynamicResource ButtonInCell}" Content="{Binding userType}" Tag="{Binding id}" />
+                            </DataTemplate>
+                        </torpedo:GridViewColumn.CellTemplate>
+                    </torpedo:GridViewDataColumn>
+
+                    <torpedo:GridViewDataColumn Header="Status" Width="1.5*" HeaderCellStyle="{DynamicResource GridViewHeaderCell}">
+                        <torpedo:GridViewColumn.CellTemplate>
+                            <DataTemplate>
+                                <torpedo:RadButton Style="{DynamicResource ButtonInCell}" Content="{Binding userType}" Tag="{Binding id}" />
+                            </DataTemplate>
+                        </torpedo:GridViewColumn.CellTemplate>
+                    </torpedo:GridViewDataColumn>
+
+                    <torpedo:GridViewDataColumn Header="PendingDate" Width="1.5*"  HeaderCellStyle="{DynamicResource GridViewHeaderCell}">
+                        <torpedo:GridViewColumn.CellTemplate>
+                            <DataTemplate>
+                                <torpedo:RadButton Style="{DynamicResource ButtonInCell}" Content="{Binding name}" Tag="{Binding id}" />
+                            </DataTemplate>
+                        </torpedo:GridViewColumn.CellTemplate>
+                    </torpedo:GridViewDataColumn>
+
+                    <torpedo:GridViewDataColumn Header="Sales" Width="1.5*"  HeaderCellStyle="{DynamicResource GridViewHeaderCell}">
+                        <torpedo:GridViewColumn.CellTemplate>
+                            <DataTemplate>
+                                <torpedo:RadButton Style="{DynamicResource ButtonInCell}" Content="{Binding name}" Tag="{Binding id}" />
+                            </DataTemplate>
+                        </torpedo:GridViewColumn.CellTemplate>
+                    </torpedo:GridViewDataColumn>
+
+                </torpedo:RadGridView.Columns>
+            </torpedo:RadGridView>
+        </Grid>
+    </Grid>
+</base:ChildControlBase>

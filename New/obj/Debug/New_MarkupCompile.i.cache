@@ -10,11 +10,11 @@ none
 false
 DEBUG;TRACE
 D:\Project\new\New\App.xaml
-61023221014
+11-433326534
 461685103556
-412013971820
-161286650486
-LoginWindow.xaml;MainWindow.xaml;Styles\Dictionary.xaml;Styles\TotalStyles.xaml;Views\CallList.xaml;Views\CaseList.xaml;
+80461015927
+26-257566103
+LoginWindow.xaml;MainWindow.xaml;Styles\Theme.xaml;Views\Case\CreateCase.xaml;Views\Main\Opportunity.xaml;Views\Main\Company.xaml;Views\Main\Customer.xaml;Views\Main\LeadList.xaml;Views\Main\UserList.xaml;Views\Main\TaskList.xaml;Views\Main\CaseList.xaml;
 
-True
+False
 

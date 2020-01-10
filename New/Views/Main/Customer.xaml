@@ -1,0 +1,91 @@
+﻿<base:ChildControlBase x:Class="New.Views.Main.Customer"
+             xmlns="http://schemas.microsoft.com/winfx/2006/xaml/presentation"
+             xmlns:x="http://schemas.microsoft.com/winfx/2006/xaml"
+             xmlns:mc="http://schemas.openxmlformats.org/markup-compatibility/2006" 
+             xmlns:d="http://schemas.microsoft.com/expression/blend/2008" 
+             xmlns:local="clr-namespace:New.Views"
+             xmlns:torpedo="http://schemas.torpedo.com/2008/xaml/presentation"
+             xmlns:base="clr-namespace:New.Base"
+             mc:Ignorable="d" Initialized="Customer_OnInitialized"
+             d:DesignHeight="768" d:DesignWidth="1366">
+    <Grid>
+        <Grid.RowDefinitions>
+            <RowDefinition Height="30"></RowDefinition>
+            <RowDefinition Height="*"></RowDefinition>
+        </Grid.RowDefinitions>
+        <Grid Row="0" Margin="0,0,0,1">
+            <Grid DockPanel.Dock="Top" Height="Auto" Background="#9fa8da">
+                <Grid.ColumnDefinitions>
+                    <ColumnDefinition Width="*"></ColumnDefinition>
+                    <ColumnDefinition Width="30"></ColumnDefinition>
+                </Grid.ColumnDefinitions>
+                <Grid Grid.Row="0" Grid.Column="0">
+                    <torpedo:RadAutoCompleteBox Name="Search" InputMethod.IsInputMethodEnabled="False" Width="auto" Style="{DynamicResource Rad-Auto-Complete-Box}"
+                                            ItemsSource="{Binding CommonSearchDTOList,Mode=TwoWay}" DisplayMemberPath="name" SelectedItems="{Binding CommonSearchDTO}" 
+                                            SelectionMode="Single" TextSearchMode="Contains" TextSearchPath="name" AutoCompleteMode="SuggestAppend"  SearchText="{Binding name,Mode=OneWay}" 
+                                            ToolTip="Quick search like : company name ,customer name, phone, email" />
+                </Grid>
+                <StackPanel Grid.Row="0" Grid.Column="1" Orientation="Horizontal" HorizontalAlignment="Center" Height="auto">
+                    <Grid>
+                        <Grid.ColumnDefinitions>
+                            <ColumnDefinition Width="1*"></ColumnDefinition>
+                            <!--                            <ColumnDefinition Width="1*"></ColumnDefinition>-->
+                        </Grid.ColumnDefinitions>
+                        <Button  HorizontalAlignment="Center" Grid.Row="0" Grid.Column="0" Style="{DynamicResource Refresh}" ToolTip="刷新callList..."/>
+                        <!--                        <Button  HorizontalAlignment="Center" Grid.Row="0" Grid.Column="1" Style="{DynamicResource Search}" ToolTip="查询callList..."  />-->
+                    </Grid>
+                </StackPanel>
+            </Grid>
+        </Grid>
+        <Grid Row="1" Margin="0,0,0,1">
+            <torpedo:RadGridView x:Name="GridDrug" 
+                             Style="{DynamicResource GridViewNormal}" HeaderRowStyle="{DynamicResource GridViewHeaderRow}"
+                             RowStyle="{DynamicResource GridViewRowNormal}" AlternateRowStyle="{DynamicResource GridViewAlternateRowNormal}"
+                             ItemsSource="{Binding UserList,Mode=TwoWay}"  IsReadOnly="True"  SelectionMode="Single" >
+                <torpedo:RadGridView.Columns>
+                    <torpedo:GridViewDataColumn Header="Name" Width="1.5*" HeaderCellStyle="{DynamicResource GridViewHeaderCell}">
+                        <torpedo:GridViewColumn.CellTemplate>
+                            <DataTemplate>
+                                <torpedo:RadButton Style="{DynamicResource ButtonInCell}" Content="{Binding userType}" Tag="{Binding id}" />
+                            </DataTemplate>
+                        </torpedo:GridViewColumn.CellTemplate>
+                    </torpedo:GridViewDataColumn>
+
+                    <torpedo:GridViewDataColumn Header="Company" Width="1.5*"  HeaderCellStyle="{DynamicResource GridViewHeaderCell}">
+                        <torpedo:GridViewColumn.CellTemplate>
+                            <DataTemplate>
+                                <torpedo:RadButton Style="{DynamicResource ButtonInCell}" Content="{Binding department}" Tag="{Binding id}" />
+                            </DataTemplate>
+                        </torpedo:GridViewColumn.CellTemplate>
+                    </torpedo:GridViewDataColumn>
+
+                    <torpedo:GridViewDataColumn Header="Workphone" Width="1.5*"  HeaderCellStyle="{DynamicResource GridViewHeaderCell}">
+                        <torpedo:GridViewColumn.CellTemplate>
+                            <DataTemplate>
+                                <torpedo:RadButton Style="{DynamicResource ButtonInCell}" Content="{Binding department}" Tag="{Binding id}" />
+                            </DataTemplate>
+                        </torpedo:GridViewColumn.CellTemplate>
+                    </torpedo:GridViewDataColumn>
+
+                    <torpedo:GridViewDataColumn Header="Cellphone" Width="1.5*" HeaderCellStyle="{DynamicResource GridViewHeaderCell}">
+                        <torpedo:GridViewColumn.CellTemplate>
+                            <DataTemplate>
+                                <torpedo:RadButton Style="{DynamicResource ButtonInCell}" Content="{Binding userType}" Tag="{Binding id}" />
+                            </DataTemplate>
+                        </torpedo:GridViewColumn.CellTemplate>
+                    </torpedo:GridViewDataColumn>
+
+                    <torpedo:GridViewDataColumn Header="PendingData" Width="1.5*"  HeaderCellStyle="{DynamicResource GridViewHeaderCell}">
+                        <torpedo:GridViewColumn.CellTemplate>
+                            <DataTemplate>
+                                <torpedo:RadButton Style="{DynamicResource ButtonInCell}" Content="{Binding name}" Tag="{Binding id}" />
+                            </DataTemplate>
+                        </torpedo:GridViewColumn.CellTemplate>
+                    </torpedo:GridViewDataColumn>
+
+                </torpedo:RadGridView.Columns>
+            </torpedo:RadGridView>
+        </Grid>
+
+    </Grid>
+</base:ChildControlBase>

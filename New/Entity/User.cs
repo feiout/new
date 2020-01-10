@@ -20,6 +20,20 @@ namespace New.Entity
             }
         }
 
+        private string _userId;
+        public string userId
+        {
+            get { return _userId; }
+            set
+            {
+                if (_userId != value)
+                {
+                    _userId = value;
+                    RaisePropertyChanged("userId");
+                }
+            }
+        }
+
         private string _name;
         public string name
         {
@@ -62,8 +76,8 @@ namespace New.Entity
             }
         }
 
-        private int _subscriptionId;
-        public int subscriptionId
+        private string _subscriptionId;
+        public string subscriptionId
         {
             get { return _subscriptionId; }
             set
@@ -76,8 +90,8 @@ namespace New.Entity
             }
         }
 
-        private Userlogin _userlogin;
-        public Userlogin userlogin
+        private User_login _userlogin;
+        public User_login userlogin
         {
             get { return _userlogin; }
             set

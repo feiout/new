@@ -2,6 +2,12 @@
 FD:\Project\new\New\App.xaml;;
 FD:\Project\new\New\LoginWindow.xaml;;
 FD:\Project\new\New\MainWindow.xaml;;
-FD:\Project\new\New\Views\CallList.xaml;;
-FD:\Project\new\New\Views\CaseList.xaml;;
+FD:\Project\new\New\Views\Case\CreateCase.xaml;;
+FD:\Project\new\New\Views\Main\Opportunity.xaml;;
+FD:\Project\new\New\Views\Main\Company.xaml;;
+FD:\Project\new\New\Views\Main\Customer.xaml;;
+FD:\Project\new\New\Views\Main\LeadList.xaml;;
+FD:\Project\new\New\Views\Main\UserList.xaml;;
+FD:\Project\new\New\Views\Main\TaskList.xaml;;
+FD:\Project\new\New\Views\Main\CaseList.xaml;;
 

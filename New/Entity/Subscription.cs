@@ -21,6 +21,20 @@ namespace New.Entity
             }
         }
 
+        private string _subscriptionId;
+        public string subscriptionId
+        {
+            get { return _subscriptionId; }
+            set
+            {
+                if (_subscriptionId != value)
+                {
+                    _subscriptionId = value;
+                    RaisePropertyChanged("subscriptionId");
+                }
+            }
+        }
+
         private string _companyName;
         public string companyName
         {

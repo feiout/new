@@ -3,53 +3,65 @@
         xmlns:x="http://schemas.microsoft.com/winfx/2006/xaml"
         xmlns:d="http://schemas.microsoft.com/expression/blend/2008"
         xmlns:mc="http://schemas.openxmlformats.org/markup-compatibility/2006"
-        xmlns:local="clr-namespace:New" 
-        xmlns:zdfFlatUi="clr-namespace:ZdfFlatUI;assembly=WPF.UI"
-        xmlns:views="clr-namespace:New.Views"
+        xmlns:base="clr-namespace:New.Base"
         FontFamily="苹方黑体-中粗-简"
-        mc:Ignorable="d"
-        Title="L2R" Height="350" Width="525">
+        mc:Ignorable="d" Loaded="Window_Load" 
+        base:ChildControlBase.MyCustom="HandleChineEvent"
+        Title="L2R">
     <Grid>
-           <Grid.RowDefinitions>
-                <RowDefinition Height="70"></RowDefinition>
-                <RowDefinition Height="8*"></RowDefinition>
-            </Grid.RowDefinitions>
-        <DockPanel Grid.Row="0">
-            <DataGrid></DataGrid>
-        </DockPanel>
-        <DockPanel Grid.Row="1">
+        <Grid.RowDefinitions>
+            <RowDefinition Height="85"/>
+            <RowDefinition Height="*"/>
+        </Grid.RowDefinitions>
+        <Grid.ColumnDefinitions>
+            <ColumnDefinition Width="120"></ColumnDefinition>
+            <ColumnDefinition Width="4*"></ColumnDefinition>
+        </Grid.ColumnDefinitions>
+        <Grid Grid.Row="0" Grid.Column="0" Background="#bdbdbd" Margin="0,0,2,2">
+            <Image x:Name="image" HorizontalAlignment="Left" Height="46" VerticalAlignment="Top" Width="97" Source="Images/crm.png" Margin="23,15,0,0" Visibility="hidden"/>
+            <!--// TODO: 程序主题-->
+        </Grid>
+        <Grid Grid.Row="0" Grid.Column="1" Background="#e3e8ee" Margin="0,0,0,2">
+            <Grid.ColumnDefinitions>
+                <ColumnDefinition Width="400"></ColumnDefinition>
+                <ColumnDefinition Width="*"></ColumnDefinition>
+            </Grid.ColumnDefinitions>
+            <Grid Grid.Row="0" Grid.Column="0" Width="auto" Background="#e3e8ee">
+                <!--<Label x:Name="Title" Style="{DynamicResource Toolbar-Title}" FontSize="38" Content="CTI" Foreground="#464c5b"></Label>-->
+            </Grid>
+            <Grid Grid.Column="1" HorizontalAlignment="Right">
+                <Grid.RowDefinitions>
+                    <RowDefinition Height="*"></RowDefinition>
+                    <RowDefinition Height="*"></RowDefinition>
+                    <RowDefinition Height="*"></RowDefinition>
+                    <RowDefinition Height="*"></RowDefinition>
+                </Grid.RowDefinitions>
 
-            <zdfFlatUi:ZTabControl Margin="10" Type="Card" x:Name="MainTab">
-                <TabItem Header="CallList" FontSize="15" Width="90" x:Name="Item1">
-                    <!--                    <Border>-->
-                    <!--                        <TextBlock Text="CallList" VerticalAlignment="Center" HorizontalAlignment="Center" />-->
-                    <!--                    </Border>-->
-                    <views:CallList></views:CallList>
-                </TabItem>
-                <TabItem Header="CaseList" FontSize="15" Width="90">
-                    <!--                    <Grid>-->
-                    <!--                        <TextBlock Text="CaseList" VerticalAlignment="Center" HorizontalAlignment="Center" />-->
-                    <!--                    </Grid>-->
-                    <views:CaseList></views:CaseList>
-                </TabItem>
-                <TabItem Header="LeadList" FontSize="15" Width="90">
-                    <!--                    <Border>-->
-                    <!--                        <TextBlock Text="LeadList" VerticalAlignment="Center" HorizontalAlignment="Center" />-->
-                    <!--                    </Border>-->
-                    <views:CallList></views:CallList>
-                </TabItem>
-                <TabItem Header="Company" FontSize="15" Width="90" HorizontalAlignment="Stretch">
-                    <Border>
-                        <TextBlock Text="Company" VerticalAlignment="Center" HorizontalAlignment="Center" />
-                    </Border>
-                </TabItem>
-                <TabItem Header="Input" FontSize="15" Width="90">
-                    <Border>
-                        <TextBlock Text="Input" VerticalAlignment="Center" HorizontalAlignment="Center" />
-                    </Border>
-                </TabItem>
-            </zdfFlatUi:ZTabControl>
-        </DockPanel>
-
+                <Grid Grid.Row="0" Width="auto">
+                    <Button Name="TopHelperButton" WindowChrome.IsHitTestVisibleInChrome="True" ToolTip="修改密码" Style="{DynamicResource Toolbar-Settings}"/>
+                </Grid>
+                <Grid Grid.Row="1" Width="auto">
+                    <Label x:Name="CtrlUserInfo" Style="{DynamicResource Toolbar-User}" ToolTip="登录用户" Content="登录用户" Foreground="#464c5b"></Label>
+                </Grid>
+            </Grid>
+        </Grid>
+        <Grid Grid.Row="1" Grid.Column="0" Margin="0,0,2,0">
+            <Menu Width="Auto" x:Name="Menu" Background="#bdbdbd">
+                <MenuItem Height="30" Width="{Binding ElementName=Menu,Path=ActualWidth}" FontSize="15" Background="#bdbdbd" BorderThickness="0" Foreground="#464c5b" Header="  Task" Name="CallList" Click="CallList_OnClick" />
+                <MenuItem Height="30" Width="{Binding ElementName=Menu,Path=ActualWidth}" FontSize="15" Background="#bdbdbd" BorderThickness="0" Foreground="#464c5b" Header="  Case" Name="CaseList" Click="CaseList_OnClick" />
+                <MenuItem Height="30" Width="{Binding ElementName=Menu,Path=ActualWidth}" FontSize="15" Background="#bdbdbd" BorderThickness="0" Foreground="#464c5b" Header="  Lead" Name="LeadList" Click="LeadList_OnClick" />
+                <MenuItem Height="30" Width="{Binding ElementName=Menu,Path=ActualWidth}" FontSize="15" Background="#bdbdbd" BorderThickness="0" Foreground="#464c5b" Header="  Opportunity" Name="Opportunity" Click="Opportunity_OnClick"/>
+                <MenuItem Height="30" Width="{Binding ElementName=Menu,Path=ActualWidth}" FontSize="15" Background="#bdbdbd" BorderThickness="0" Foreground="#464c5b" Header="  Customer" Name="Customer" Click="Customer_OnClick" />
+                <MenuItem Height="30" Width="{Binding ElementName=Menu,Path=ActualWidth}" FontSize="15" Background="#bdbdbd" BorderThickness="0" Foreground="#464c5b" Header="  Company" Name="Company" Click="Company_OnClick" />
+                <MenuItem Height="30" Width="{Binding ElementName=Menu,Path=ActualWidth}" FontSize="15" Background="#bdbdbd" BorderThickness="0" Foreground="#464c5b" Header="  User" Name="UserList" Click="User_OnClick"/>
+            </Menu>
+        </Grid>
+        <Grid Grid.Row="1" Grid.Column="1">
+<!--            <ScrollViewer HorizontalScrollBarVisibility="Hidden" VerticalScrollBarVisibility="Visible">-->
+            <DockPanel Name="ShowDetail" Background="#FFEEEEEE">
+                    <ContentControl x:Name="Display" />
+            </DockPanel>
+<!--            </ScrollViewer>-->
+        </Grid>
     </Grid>
 </Window>

@@ -1,9 +1,6 @@
-﻿using System;
-using System.Collections;
-using System.Collections.Generic;
+﻿using System.Collections.Generic;
 using System.Collections.ObjectModel;
-using System.Windows;
-using New.Common;
+using New.Base;
 using New.Entity;
 using New.RestUtility;
 using New.Service;
@@ -18,84 +15,9 @@ namespace New.ViewModels
 
         public VmUser()
         {
-            QueryUserList();
-
+            User = new User();
+            User.userlogin = new User_login();
         }
-
-//        private string _passedNote;
-//        public string passedNote
-//        {
-//            get { return _passedNote; }
-//            set
-//            {
-//                if (_passedNote != value)
-//                {
-//                    _passedNote = value;
-//                    RaisePropertyChanged("passedNote");
-//                }
-//            }
-//        }
-//
-//        private int _totalPages;
-//
-//        public int totalPages
-//        {
-//            get { return _totalPages; }
-//            set
-//            {
-//                if (_totalPages != value)
-//                {
-//                    _totalPages = value;
-//                    RaisePropertyChanged("totalPages");
-//                }
-//            }
-//        }
-//
-//        private GenericPagedList<Customer> _customerPageList;
-//        public GenericPagedList<Customer> CustomerPageList
-//        {
-//            get { return _customerPageList; }
-//            set
-//            {
-//                if (_customerPageList != value)
-//                {
-//                    _customerPageList = value;
-//                    RaisePropertyChanged("CustomerPageList");
-//                }
-//            }
-//        }
-
-
-//        private Visibility _canEdit;
-//        public Visibility CanEdit
-//        {
-//            get { return _canEdit; }
-//            set
-//            {
-//                if (_canEdit != value)
-//                {
-//                    _canEdit = value;
-//                    RaisePropertyChanged("CanEdit");
-//                }
-//            }
-//        }
-
-
-//        private Leads _TLeads;
-//
-//        public Leads TLeads
-//        {
-//            get { return _TLeads; }
-//            set
-//            {
-//                if (_TLeads != value)
-//                {
-//                    _TLeads = value;
-//                    RaisePropertyChanged("TLeads");
-//                }
-//            }
-//        }
-
 
 
         private ObservableCollection<User> _userList;
@@ -112,12 +34,19 @@ namespace New.ViewModels
             }
         }
 
-
-        public void QueryUserList()
+        private User _User;
+        public User User
         {
-            UserList = _userService.GetUserList();
+            get { return _User; }
+            set
+            {
+                if (_User != value)
+                {
+                    _User = value;
+                    RaisePropertyChanged("User");
+                }
+            }
         }
-
 
     }
 }

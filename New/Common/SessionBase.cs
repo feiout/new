@@ -1,6 +1,4 @@
-﻿using New.Common;
-
-namespace New.Common
+﻿namespace New.Common
 {
     public class SessionBase
     {
