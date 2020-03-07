@@ -4,6 +4,7 @@
              xmlns:mc="http://schemas.openxmlformats.org/markup-compatibility/2006" 
              xmlns:d="http://schemas.microsoft.com/expression/blend/2008"
              xmlns:torpedo="http://schemas.torpedo.com/2008/xaml/presentation"
+             xmlns:materialDesign="http://materialdesigninxaml.net/winfx/xaml/themes"
              xmlns:base="clr-namespace:New.Base"
              mc:Ignorable="d" Initialized="CreateCase_OnInitialized"
              d:DesignHeight="768" d:DesignWidth="1366">
@@ -101,7 +102,9 @@
             </Grid>
         </ControlTemplate>
     </base:ChildControlBase.Resources>
-    <DockPanel LastChildFill="True" >
+    <Grid>
+        <materialDesign:TransitioningContent x:Name="TransitioningContentSlide" OpeningEffect="{materialDesign:TransitionEffect SlideInFromRight,Duration=0:0:0.2}">
+            <DockPanel LastChildFill="True" >
         <ScrollViewer VerticalScrollBarVisibility="Auto">
             <Grid Margin="0,1,0,1" Background="#FFEEEEEE">
                 <Grid.RowDefinitions>
@@ -508,4 +511,6 @@
             </Grid>
         </ScrollViewer>
     </DockPanel>
+        </materialDesign:TransitioningContent>
+    </Grid>
 </base:ChildControlBase>

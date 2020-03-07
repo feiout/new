@@ -1,4 +1,5 @@
 ﻿using System.Windows;
+using System.Windows.Input;
 using New.RestUtility;
 using New.Service;
 using New.ViewModels;
@@ -57,5 +58,10 @@ namespace New
 
         }
 
+        private void LoginWindow_OnMouseDown(object sender, MouseButtonEventArgs e)
+        {
+            if(e.LeftButton==MouseButtonState.Pressed)DragMove();
+
+        }
     }
 }

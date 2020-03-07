@@ -5,10 +5,112 @@
         xmlns:mc="http://schemas.openxmlformats.org/markup-compatibility/2006"
         xmlns:local="clr-namespace:New"
         xmlns:zdfFlatUi="clr-namespace:ZdfFlatUI;assembly=WPF.UI"
+        xmlns:iconPacks="http://metro.mahapps.com/winfx/xaml/iconpacks"
         Loaded="LoginWindow_OnLoaded"
-        mc:Ignorable="d" Height="360" Width="600" ResizeMode="NoResize"
-        Title="Login" MaxWidth="600" MaxHeight="360">
-    <Grid x:Name="LoginGrid" Height="240" Width="500">
+        mc:Ignorable="d" 
+        Title="Login" Height="360" Width="360" 
+        AllowsTransparency="True" Background="Transparent" 
+        WindowStyle="None" ResizeMode="NoResize"
+        MouseDown="LoginWindow_OnMouseDown"
+        FontFamily="DokChampa" >
+
+    <Grid>
+        <Grid>
+            <Grid.RowDefinitions>
+                <RowDefinition/>
+                <RowDefinition/>
+            </Grid.RowDefinitions>
+            
+            <Border CornerRadius="10" Grid.RowSpan="2">
+                <Border.Background>
+                    <LinearGradientBrush>
+                        <GradientStop Color="#7be9f6" Offset="0.0"></GradientStop>
+                        <GradientStop Color="#f083da" Offset="1"></GradientStop>
+                    </LinearGradientBrush>
+                </Border.Background>
+            </Border>
+            
+            <StackPanel Grid.Row="0" VerticalAlignment="Center">
+                <Image Source="Images/crm.png" Width="100"/>
+                <TextBox Text="Lead To Revenue" 
+                         FontWeight="Light"
+                         FontSize="24"
+                         Background="Transparent"
+                         Foreground="White"
+                         BorderThickness="0"
+                         HorizontalAlignment="Center"/>
+            </StackPanel>
+            
+            <StackPanel Grid.Row="1">
+                <StackPanel Orientation="Horizontal">
+                    <TextBox FontWeight="Light"
+                             Name="UserName" 
+                             Text="52486846@qq.com"
+                             FontSize="14"
+                             HorizontalAlignment="Left"
+                             Foreground="White"
+                             Background="Transparent"
+                             BorderThickness="0"
+                             Width="235"
+                             HorizontalContentAlignment="Left"
+                             Opacity="0.5"
+                             Height="30"
+                             Margin="50,0,0,0"/>
+                    <iconPacks:PackIconMaterial Kind="Account" 
+                                                VerticalAlignment="Center" 
+                                                HorizontalAlignment="Center"
+                                                Foreground="White"/>
+                </StackPanel>
+                <Border Width="260" 
+                            Height="2"
+                            Background="White"
+                            Opacity="0.4"/>
+
+                <StackPanel Orientation="Horizontal" Margin="0,20,0,0">
+                    <PasswordBox FontWeight="Light"
+                             Name="Password"
+                             Password="1"
+                             FontSize="14"
+                             HorizontalAlignment="Left"
+                             Foreground="White"
+                             Background="Transparent"
+                             BorderThickness="0"
+                             Width="235"
+                             HorizontalContentAlignment="Left"
+                             Opacity="0.5"
+                             Height="30"
+                             Margin="50,0,0,0"/>
+                    <iconPacks:PackIconMaterial Kind="TextboxPassword" 
+                                                VerticalAlignment="Center" 
+                                                HorizontalAlignment="Center"
+                                                Foreground="White"/>
+                </StackPanel>
+                <Border Width="260" 
+                            Height="2"
+                            Background="White"
+                            Opacity="0.4"/>
+
+                <StackPanel Orientation="Horizontal" Margin="0,30,0,0">
+                    <Button Style="{DynamicResource Login-Button}" 
+                            Content="Login" Background="Transparent"
+                            Click="LoginButton_Click" 
+                            Width="90" Height="28"
+                            Margin="65,0,50,0"/>
+                    
+
+                    <Button Style="{DynamicResource Login-Button}" 
+                            Content="Cancel" Background="Transparent"
+                            Click="CloseButton_Click" 
+                            Width="90" Height="28"/>
+                </StackPanel>
+                
+            </StackPanel>
+            
+            
+        </Grid>
+    </Grid>
+
+        <!--<Grid x:Name="LoginGrid" Height="240" Width="500">
         <Border BorderBrush="#d7dde4">
             <Grid>
                 <Grid.RowDefinitions>
@@ -68,5 +170,5 @@
             </Grid>
         </Border>
 
-    </Grid>
+    </Grid>-->
 </Window>

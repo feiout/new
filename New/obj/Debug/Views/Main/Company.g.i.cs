@@ -72,7 +72,7 @@ namespace New.Views.Main {
     public partial class Company : New.Base.ChildControlBase, System.Windows.Markup.IComponentConnector {
         
         
-        #line 22 "..\..\..\..\Views\Main\Company.xaml"
+        #line 23 "..\..\..\..\Views\Main\Company.xaml"
         [System.Diagnostics.CodeAnalysis.SuppressMessageAttribute("Microsoft.Performance", "CA1823:AvoidUnusedPrivateFields")]
         internal Torpedo.Windows.Controls.RadAutoCompleteBox Search;
         
@@ -80,7 +80,7 @@ namespace New.Views.Main {
         #line hidden
         
         
-        #line 40 "..\..\..\..\Views\Main\Company.xaml"
+        #line 41 "..\..\..\..\Views\Main\Company.xaml"
         [System.Diagnostics.CodeAnalysis.SuppressMessageAttribute("Microsoft.Performance", "CA1823:AvoidUnusedPrivateFields")]
         internal Torpedo.Windows.Controls.RadGridView GridDrug;
         
