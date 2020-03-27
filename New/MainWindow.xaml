@@ -25,14 +25,14 @@
         </Storyboard>
     </Window.Resources>
     
-    <Window.Triggers>
-        <EventTrigger RoutedEvent="ButtonBase.Click" SourceName="ButtonOpenMenu">
-            <BeginStoryboard Storyboard="{StaticResource MenuOpen}"/>
-        </EventTrigger>
-        <EventTrigger RoutedEvent="ButtonBase.Click" SourceName="ButtonCloseMenu">
-            <BeginStoryboard Storyboard="{StaticResource MenuClose}"/>
-        </EventTrigger>
-    </Window.Triggers>
+<!--    <Window.Triggers>-->
+<!--        <EventTrigger RoutedEvent="ButtonBase.Click" SourceName="ButtonOpenMenu">-->
+<!--            <BeginStoryboard Storyboard="{StaticResource MenuOpen}"/>-->
+<!--        </EventTrigger>-->
+<!--        <EventTrigger RoutedEvent="ButtonBase.Click" SourceName="ButtonCloseMenu">-->
+<!--            <BeginStoryboard Storyboard="{StaticResource MenuClose}"/>-->
+<!--        </EventTrigger>-->
+<!--    </Window.Triggers>-->
     
     <Grid Background="LightGray">
         <Grid>
@@ -43,50 +43,56 @@
 
             <Grid x:Name="GridMenu" Grid.Column="0" HorizontalAlignment="Left" Width="60">
                 <StackPanel>
-
                     <Grid Height="80" Background="#bdbdbd">
-                        <Button x:Name="ButtonCloseMenu" Height="60" Width="60" Background="{x:Null}" BorderBrush="{x:Null}" VerticalAlignment="Top" HorizontalAlignment="Right" Visibility="Collapsed" Click="ButtonCloseMenu_OnClick">
-                            <materialDesign:PackIcon Kind="ArrowLeft" Foreground="#FF1B3861" Width="20" Height="20" />
-                        </Button>
-                        <Button x:Name="ButtonOpenMenu" Height="60" Width="60" Background="{x:Null}" BorderBrush="{x:Null}" VerticalAlignment="Top" HorizontalAlignment="Right" Click="ButtonOpenMenu_OnClick">
-                            <materialDesign:PackIcon Kind="Menu" Foreground="#FF1B3861" Width="20" Height="20"/>
-                        </Button>
-                        <Image x:Name="SmallLogo" HorizontalAlignment="Center" VerticalAlignment="Bottom" Height="29" Width="45" Margin="0 0 0 5" Source="Images/crm.png" />
+<!--                        <Button x:Name="ButtonCloseMenu" Height="60" Width="60" Background="{x:Null}" BorderBrush="{x:Null}" VerticalAlignment="Top" HorizontalAlignment="Right" Visibility="Collapsed" Click="ButtonCloseMenu_OnClick">-->
+<!--                            <materialDesign:PackIcon Kind="ArrowLeft" Foreground="#FF1B3861" Width="20" Height="20" />-->
+<!--                        </Button>-->
+<!--                        <Button x:Name="ButtonOpenMenu" Height="60" Width="60" Background="{x:Null}" BorderBrush="{x:Null}" VerticalAlignment="Top" HorizontalAlignment="Right" Click="ButtonOpenMenu_OnClick">-->
+<!--                            <materialDesign:PackIcon Kind="Menu" Foreground="#FF1B3861" Width="20" Height="20"/>-->
+<!--                        </Button>-->
+<!--                        <Image x:Name="SmallLogo" HorizontalAlignment="Center" VerticalAlignment="Bottom" Height="29" Width="45" Margin="0 0 0 5" Source="Images/crm.png" />-->
 
-                        <Image x:Name="BigLogo" HorizontalAlignment="Center" VerticalAlignment="Bottom" Height="45" Width="70" Margin="0 0 0 3" Source="Images/crm.png" Visibility="Collapsed"/>
+<!--                        <Image x:Name="BigLogo" HorizontalAlignment="Center" VerticalAlignment="Bottom" Height="45" Width="70" Margin="0 0 0 3" Source="Images/crm.png" Visibility="Collapsed"/>-->
+
+                        <Grid.RowDefinitions>
+                            <RowDefinition Height="8"/>
+                            <RowDefinition Height="72"/>
+                        </Grid.RowDefinitions>
+                        <Grid Background="#FF0069C0" Height="8" Row="0"/>
+                        <Image x:Name="SmallLogo" HorizontalAlignment="Center" VerticalAlignment="Bottom" Height="29" Width="45" Margin="0 0 0 20" Source="Images/crm.png" Grid.Row="1"/>
 
                     </Grid>
 
 
                     <ListView x:Name="View" Foreground="#FF1368BD" ScrollViewer.HorizontalScrollBarVisibility="Disabled" FontSize="14" SelectionChanged="Selector_OnSelectionChanged">
-                        <ListViewItem Height="45">
+                        <ListViewItem Height="45"  ToolTip="Create" >
                             <StackPanel Orientation="Horizontal">
                                 <materialDesign:PackIcon Kind="Create" Height="25" Width="25" VerticalAlignment="Center" Margin="10 0 10 0"/>
-                                <Label Content="Create" VerticalAlignment="Center" HorizontalAlignment="Center" Foreground="#464c5b" />
+<!--                                <Label Content="Create" VerticalAlignment="Center" HorizontalAlignment="Center" Foreground="#464c5b" />-->
                             </StackPanel>
                         </ListViewItem>
-                        <ListViewItem Height="45">
+                        <ListViewItem Height="45" ToolTip="Task" >
                             <StackPanel Orientation="Horizontal">
                                 <materialDesign:PackIcon Kind="Database" Height="25" Width="25" VerticalAlignment="Center" Margin="10 0 10 0"/>
-                                <Label Content="Task" VerticalAlignment="Center" HorizontalAlignment="Center" Foreground="#464c5b" />
+<!--                                <Label Content="Task" VerticalAlignment="Center" HorizontalAlignment="Center" Foreground="#464c5b" />-->
                             </StackPanel>
                         </ListViewItem>
-                        <ListViewItem Height="45">
+                        <ListViewItem Height="45" ToolTip="Case" >
                             <StackPanel Orientation="Horizontal">
                                 <materialDesign:PackIcon Kind="Valve" Height="25" Width="25" VerticalAlignment="Center" Margin="10 0 10 0"/>
-                                <Label Content="Case" VerticalAlignment="Center" HorizontalAlignment="Center" Foreground="#464c5b" />
+<!--                                <Label Content="Case" VerticalAlignment="Center" HorizontalAlignment="Center" Foreground="#464c5b" />-->
                             </StackPanel>
                         </ListViewItem>
-                        <ListViewItem Height="45">
+                        <ListViewItem Height="45" ToolTip="Customer" >
                             <StackPanel Orientation="Horizontal">
                                 <materialDesign:PackIcon Kind="Users" Height="25" Width="25" VerticalAlignment="Center" Margin="10 0 10 0"/>
-                                <Label Content="Customer" VerticalAlignment="Center" HorizontalAlignment="Center" Foreground="#464c5b" />
+<!--                                <Label Content="Customer" VerticalAlignment="Center" HorizontalAlignment="Center" Foreground="#464c5b" />-->
                             </StackPanel>
                         </ListViewItem>
-                        <ListViewItem Height="45">
+                        <ListViewItem Height="45" ToolTip="Company">
                             <StackPanel Orientation="Horizontal">
                                 <materialDesign:PackIcon Kind="Company" Height="25" Width="25" VerticalAlignment="Center" Margin="10 0 10 0"/>
-                                <Label Content="Company" VerticalAlignment="Center" HorizontalAlignment="Center" Foreground="#464c5b" />
+<!--                                <Label Content="Company" VerticalAlignment="Center" HorizontalAlignment="Center" Foreground="#464c5b" />-->
                             </StackPanel>
                         </ListViewItem>
                     </ListView>
@@ -127,46 +133,9 @@
                         </StackPanel>
                     </Grid>
                 </StackPanel>
+                
 
-                <!--                <Grid Background="#e3e8ee">-->
-                <!--                    <Grid.ColumnDefinitions>-->
-                <!--                        <ColumnDefinition Width="400"></ColumnDefinition>-->
-                <!--                        <ColumnDefinition Width="*"></ColumnDefinition>-->
-                <!--                    </Grid.ColumnDefinitions>-->
-                <!---->
-<!--                    <StackPanel Grid.Row="0">-->
-                <!--                            <Label x:Name="Title" Style="{DynamicResource Toolbar-Title}" FontSize="38" Content="Test" Foreground="#464c5b"></Label>-->
-                <!--                    </StackPanel>-->
-                <!---->
-<!--                    <Grid Grid.Column="1" HorizontalAlignment="Right">-->
-                <!--                        <Grid.RowDefinitions>-->
-                <!--                            <RowDefinition Height="30"></RowDefinition>-->
-                <!--                            <RowDefinition Height="30"></RowDefinition>-->
-                <!--                            <RowDefinition Height="*"></RowDefinition>-->
-                <!--                            <RowDefinition Height="*"></RowDefinition>-->
-                <!--                        </Grid.RowDefinitions>-->
-                <!--                    -->
-                <!--                        <Grid Grid.Row="0" Width="auto">-->
-                <!--                            <StackPanel HorizontalAlignment="Right" Orientation="Horizontal">-->
-                <!--                                <Button Width="30" Height="30" Background="{x:Null}" BorderBrush="{x:Null}" Padding="0" Foreground="Gray">-->
-                <!--                                    <materialDesign:PackIcon Kind="BellOutline"/>-->
-                <!--                                </Button>-->
-                <!---->
-<!--                                <Button Width="30" Height="30" Background="{x:Null}" BorderBrush="{x:Null}" Padding="0" Foreground="Gray" Margin="0 0 10 0">-->
-                <!--                                    <materialDesign:PackIcon Kind="Settings"/>-->
-                <!--                                </Button>-->
-                <!--                            </StackPanel>-->
-                <!--                        </Grid>-->
-                <!--                        <Grid Grid.Row="1" Width="auto">-->
-                <!--                            <StackPanel HorizontalAlignment="Right" Margin="0 0 10 0">-->
-                <!--                                <Label x:Name="CtrlUserInfo" Style="{DynamicResource Toolbar-User}" ToolTip="登录用户" Content="登录用户" Foreground="#464c5b"></Label>-->
-                <!--                            </StackPanel>-->
-                <!--                        </Grid>-->
-                <!--                    </Grid>-->
-                <!--                    -->
-                <!--                </Grid>-->
-
-                <Grid Grid.Row="1" Background="#ffeeeeee">
+                <Grid Grid.Row="1" Background="#FFffffff">
                     <DockPanel Name="ShowDetail">
                         <ContentControl x:Name="Display" />
                     </DockPanel>

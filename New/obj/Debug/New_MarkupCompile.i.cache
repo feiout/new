@@ -4,16 +4,16 @@
 winexe
 C#
 .cs
-D:\Project\new\New\obj\Debug\
+C:\D-Data\Project\new\New\obj\Debug\
 New
 none
 false
 DEBUG;TRACE
-D:\Project\new\New\App.xaml
+C:\D-Data\Project\new\New\App.xaml
 11676865726
 461685103556
 80975445435
-311488832030
+31-652479674
 LoginWindow.xaml;MainWindow.xaml;Styles\Theme.xaml;Views\Case\CreateCase.xaml;Views\Main\Opportunity.xaml;Views\Main\CompanyList.xaml;Views\Main\CustomerList.xaml;Views\Main\LeadList.xaml;Views\Main\UserList.xaml;Views\Main\TaskList.xaml;Views\Main\CaseList.xaml;
 
 False

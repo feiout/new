@@ -103,8 +103,8 @@
         </ControlTemplate>
     </base:ChildControlBase.Resources>
     <Grid>
-        <materialDesign:TransitioningContent x:Name="TransitioningContentSlide" OpeningEffect="{materialDesign:TransitionEffect SlideInFromRight,Duration=0:0:0.2}">
-            <DockPanel LastChildFill="True" >
+<!--        <materialDesign:TransitioningContent x:Name="TransitioningContentSlide" OpeningEffect="{materialDesign:TransitionEffect SlideInFromRight,Duration=0:0:0.1}">-->
+<!--            <DockPanel LastChildFill="True" >-->
         <ScrollViewer VerticalScrollBarVisibility="Auto">
             <Grid Margin="0,1,0,1" Background="#FFEEEEEE">
                 <Grid.RowDefinitions>
@@ -510,7 +510,7 @@
                 </DockPanel>
             </Grid>
         </ScrollViewer>
-    </DockPanel>
-        </materialDesign:TransitioningContent>
+<!--    </DockPanel>-->
+<!--        </materialDesign:TransitioningContent>-->
     </Grid>
 </base:ChildControlBase>

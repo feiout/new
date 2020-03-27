@@ -208,21 +208,21 @@ namespace New
 
 
 
-        private void ButtonCloseMenu_OnClick(object sender, RoutedEventArgs e)
-        {
-            ButtonOpenMenu.Visibility = Visibility.Visible;
-            ButtonCloseMenu.Visibility = Visibility.Collapsed;
-            BigLogo.Visibility = Visibility.Collapsed;
-            SmallLogo.Visibility = Visibility.Visible;
-        }
-
-        private void ButtonOpenMenu_OnClick(object sender, RoutedEventArgs e)
-        {
-            ButtonOpenMenu.Visibility = Visibility.Collapsed;
-            ButtonCloseMenu.Visibility = Visibility.Visible;
-            BigLogo.Visibility = Visibility.Visible;
-            SmallLogo.Visibility = Visibility.Collapsed;
-        }
+//        private void ButtonCloseMenu_OnClick(object sender, RoutedEventArgs e)
+//        {
+//            ButtonOpenMenu.Visibility = Visibility.Visible;
+//            ButtonCloseMenu.Visibility = Visibility.Collapsed;
+//            BigLogo.Visibility = Visibility.Collapsed;
+//            SmallLogo.Visibility = Visibility.Visible;
+//        }
+//
+//        private void ButtonOpenMenu_OnClick(object sender, RoutedEventArgs e)
+//        {
+//            ButtonOpenMenu.Visibility = Visibility.Collapsed;
+//            ButtonCloseMenu.Visibility = Visibility.Visible;
+//            BigLogo.Visibility = Visibility.Visible;
+//            SmallLogo.Visibility = Visibility.Collapsed;
+//        }
 
         private void ClosedButton(object sender, RoutedEventArgs e)
         {
